@@ -77,7 +77,7 @@ class OrderController extends Controller
         ];
 
 
-        $response = Http::post("{$this->domain}/api/v5/orders/create?apiKey={$this->apiKey}", ['order' => $this->json_encode()]);
+        $response = Http::post("{$this->domain}/api/v5/orders/create?apiKey={$this->apiKey}", ['order' => json_encode($order)]);
 
         return redirect()->route('home')->with('success', 'Заказ отправлен');
     }
